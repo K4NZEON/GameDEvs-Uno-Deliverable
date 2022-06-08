@@ -11,14 +11,14 @@ package gamedevsuno;
  */
 public class Card
 {
-    public enum Suit { HEARTS,SPADES,CLUBS,DIAMONDS } ;
-    public enum Value {ACE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,TEN,JACK,QUEEN,KING, JOKER}; 
+    public enum Color {RED, GREEN, BLUE, YELLOW} ;
+    public enum Value {ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,WILDCARD,PLUSTWO,PLUSFOUR}; 
     private Value value;
-    private Suit suit;
+    private Color color;
     
-    public Card(Suit s,Value v)
+    public Card(Color c,Value v)
     {
-        this.suit=s;
+        this.color=c;
         this.value=v;
     }
 
@@ -37,16 +37,16 @@ public class Card
     }
 
     /**
-     * @return the suit
+     * @return the color
      */
-    public Suit getSuit() {
-        return suit;
+    public Color getColor() {
+        return color;
     }
 
     /**
-     * @param suit the suit to set
+     * @param color the color to set
      */
-    public void setSuit(Suit suit) {
-        this.suit = suit;
+    public void setColor(Color color) {
+        this.color = color;
     }
 }

@@ -20,7 +20,7 @@ public class CardDesignPrinciples {
         cd.generate();
         for(  Card cc :cd.deck)
         {
-        System.out.println(cc.getSuit() + " " + cc.getValue());
+        System.out.println(cc.getColor() + " " + cc.getValue());
         }
     
 }

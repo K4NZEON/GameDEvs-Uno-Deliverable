@@ -18,11 +18,11 @@ public class GenerateCard
     public void generate()
     {
        int count = 0;
-        for( Card.Suit s:Card.Suit.values() ) //s= hearts
+        for( Card.Color c:Card.Color.values() ) //c = red
         {
-            for( Card.Value v : Card.Value.values()) //ACE
+            for( Card.Value v : Card.Value.values()) // v = one
             {
-                deck[count]= new Card(s,v);
+                deck[count]= new Card(c,v);
                 count++;
             }
         }
