@@ -13,7 +13,7 @@ package gamedevsuno;
 public class GenerateCard 
 {
    // 52 cards 
-    private int size = 60;
+    private int size = 112;
     Card[] deck = new Card[size];
     public void generate()
     {
