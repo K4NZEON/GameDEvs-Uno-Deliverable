@@ -12,7 +12,7 @@ package gamedevsuno;
 public class Card
 {
     public enum Color {RED, GREEN, BLUE, YELLOW} ;
-    public enum Value {ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,WILDCARD,PLUSTWO,PLUSFOUR}; 
+    public enum Value {ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, WILDCARD, SKIP, REVERSE, PLUSTWO, PLUSFOUR}; 
     private Value value;
     private Color color;
     
