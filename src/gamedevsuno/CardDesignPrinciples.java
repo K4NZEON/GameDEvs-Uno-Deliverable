@@ -22,6 +22,6 @@ public class CardDesignPrinciples {
         {
         System.out.println(cc.getColor() + " " + cc.getValue());
         }
-    
+    System.out.println("practica 2");
 }
 }
