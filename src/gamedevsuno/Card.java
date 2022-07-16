@@ -13,13 +13,18 @@ public class Card
 {
     public enum Color {RED, GREEN, BLUE, YELLOW} ;
     public enum Value {ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, WILDCARD, SKIP, REVERSE, PLUSTWO, PLUSFOUR}; 
-    private Value value;
-    private Color color;
+    public Value value;
+    public Color color;
     
     public Card(Color c,Value v)
     {
         this.color=c;
         this.value=v;
+    }
+    
+    public Card()
+    {
+        
     }
 
     /**

@@ -10,11 +10,23 @@ package gamedevsuno;
  * "seperation of concerns"
  * @author srinivsi
  */
-public class GenerateCard 
+public class GenerateCard extends Card
 {
-   // 52 cards 
+   // 112 cards 
     private int size = 112;
     Card[] deck = new Card[size];
+    
+    public GenerateCard(Color c,Value v)
+    {
+        this.color=c;
+        this.value=v;
+    }
+    
+    public GenerateCard()
+    {
+        
+    }
+    
     public void generate()
     {
        int count = 0;
