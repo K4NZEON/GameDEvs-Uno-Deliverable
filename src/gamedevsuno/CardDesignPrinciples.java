@@ -13,7 +13,7 @@ public class CardDesignPrinciples {
 //fetch test
     /** printing cards
      * main method responsible for user interaction
-     */ 
+     */
     public static void main(String[] args) 
     {
         GenerateCard cd = new GenerateCard();
