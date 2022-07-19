@@ -16,12 +16,12 @@ public class CardDesignPrinciples {
      */
     public static void main(String[] args) 
     {
-        GenerateCard cd = new GenerateCard();
+       /* GenerateCard cd = new GenerateCard();
         cd.generate();
-        for(  Card cc :cd.deck)
+       // for(  Card cc :cd.deck)
         {
         System.out.println(cc.getColor() + " " + cc.getValue());
-        }
+        }*/
     
 }
 }

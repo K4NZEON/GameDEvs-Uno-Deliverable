@@ -9,44 +9,54 @@ package gamedevsuno;
  *
  * @author srinivsi
  */
-public class Card
-{
-    public enum Color {RED, GREEN, BLUE, YELLOW} ;
-    public enum Value {ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,WILDCARD,PLUSTWO,PLUSFOUR}; 
-    private Value value;
-    private Color color;
+public class Card{
+
+      public enum Color {RED, GREEN, BLUE, YELLOW, WILD;
     
-    public Card(Color c,Value v)
-    {
-        this.color=c;
-        this.value=v;
+        private static final Color [] colors = Color.values();
+         
+        public static Color getColor(int i){
+            return Color.colors[i];
+            
+            }
+    } 
+    public enum Value {ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, WILDCARD, SKIP, REVERSE, PLUSTWO, PLUSFOUR;
+        
+        private static final Value[] values = Value.values();
+        
+        public static Value getValue(int i){
+            return Value.values[i];
+        }
+        
+    }
+    
+    private final Color color; // to never change the  color 
+    private final Value value; // to never change the  value
+   
+    
+    public Card(Color color, Value value){
+        this.color = color;
+        this.value = value;
     }
 
     /**
      * @return the value
      */
     public Value getValue() {
-        return value;
+        return this.value;
     }
 
-    /**
-     * @param value the value to set
-     */
-    public void setValue(Value value) {
-        this.value = value;
-    }
 
     /**
      * @return the color
      */
     public Color getColor() {
-        return color;
+             return this.color;
     }
 
-    /**
-     * @param color the color to set
-     */
-    public void setColor(Color color) {
-        this.color = color;
+  
+    public String toString() // it is usefull for testing
+    {
+        return color + "_" + value;
     }
 }
