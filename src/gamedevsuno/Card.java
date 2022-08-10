@@ -1,15 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gamedevsuno;
 
-/** enum , value safety and data type safety
- *
- * @author srinivsi
- */
-public class Card
+public class Card extends GenerateCard
 {
     public enum Color {RED, GREEN, BLUE, YELLOW} ;
     public enum Value {ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, WILDCARD, SKIP, REVERSE, PLUSTWO, PLUSFOUR}; 
@@ -26,6 +17,8 @@ public class Card
     {
         
     }
+    
+    
 
     /**
      * @return the value
