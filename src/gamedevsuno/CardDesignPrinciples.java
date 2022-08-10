@@ -11,6 +11,7 @@ public class CardDesignPrinciples {
     static ArrayList<Card> PlayerDeck = new ArrayList<>();
     static ArrayList<Card> ComputerDeck = new ArrayList<>();
     static Card FaceCard = new Card();
+    static boolean GameOngoing = true;
     static String DeckStyle = "Half";
     
     public static void CreateDeck(ArrayList<Card> deck){
@@ -38,7 +39,7 @@ public class CardDesignPrinciples {
                     if (check){
                         deck.add(checkedcard);
                         plc = checkedcard;
-                        System.out.println(rdm.getColor()+" "+rdm.getValue()+" Drawn from main deck.");
+                        //System.out.println(rdm.getColor()+" "+rdm.getValue()+" Drawn from main deck.");
                     }else{
                         System.out.println("Card not in main deck, \nretrying.");
                         count--;
@@ -92,7 +93,21 @@ public class CardDesignPrinciples {
         drawCard(7, ComputerDeck);
         
         GameOngoing:
-        while (true){
+        while (true && GameOngoing){
+            if (PlayerDeck.size() == 1){
+                System.out.println("\nPlayer Uno! (1 card left)");
+            }else if (ComputerDeck.size() == 1){
+                System.out.println("\nComputer Uno! (1 card left)");
+            }else if (PlayerDeck.isEmpty()){
+                GameOngoing = false;
+                System.out.println("\nCongratulations, you won!");
+                break GameOngoing;
+            }else if (ComputerDeck.isEmpty()){
+                GameOngoing = false;
+                System.out.println("\nSorry, you lose...");
+                break GameOngoing;
+            }
+            // Player
             System.out.println("\nCurrent Face Card is: "+FaceCard.getColor()+" "+FaceCard.getValue()+"\n");
             int CardChoice = 0;
             displayDeck();
@@ -105,15 +120,33 @@ public class CardDesignPrinciples {
 
             CardChoice = input.nextInt() - 1;
 
-            if (CardChoice == PlayerDeck.size() )
+            if (CardChoice == PlayerDeck.size()) // Draw Card
                 drawCard(1, PlayerDeck);
-            else if (CardChoice == PlayerDeck.size() + 1)
+            else if (CardChoice == PlayerDeck.size() + 1) // Exit Game
                 break GameOngoing;
             else if (((Card)PlayerDeck.get(CardChoice)).validCard(FaceCard, PlayerDeck.get(CardChoice)) )
             {
                 FaceCard = (Card)PlayerDeck.get(CardChoice);
                 PlayerDeck.remove(CardChoice);
             } else System.out.println("Card doesn't have right color or action, Follow the rules!");
+            
+            // Computer
+            System.out.println("\nCurrent Face Card is: "+FaceCard.getColor()+" "+FaceCard.getValue()+"\n");
+            
+            for (CardChoice = 0; CardChoice < ComputerDeck.size(); CardChoice++)
+            {
+                if (((Card)ComputerDeck.get(CardChoice)).validCard(FaceCard, ComputerDeck.get(CardChoice))) // Searching for playable cards
+                    break; 
+            }
+
+            if (CardChoice == ComputerDeck.size()){
+                System.out.println("Shoot! I have to draw a card...");
+                drawCard(1, ComputerDeck);
+            }else if (((Card)ComputerDeck.get(CardChoice)).validCard(FaceCard, ComputerDeck.get(CardChoice))){
+                FaceCard = (Card)ComputerDeck.get(CardChoice);
+                ComputerDeck.remove(CardChoice);
+                System.out.println("I'll place "+FaceCard.getColor()+" "+FaceCard.getValue());
+            }
         }
     }
 }
